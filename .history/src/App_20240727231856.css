@@ -1,0 +1,18 @@
+.mytest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cmyk {
+  background-color: blueviolet;
+  height: 2rem;
+  width: 5%;
+}
+.cyan {
+  background-color: cyan;
+  color: white;
+  height: inherit;
+  width: 50%;
+}
+.magenta {
+}
