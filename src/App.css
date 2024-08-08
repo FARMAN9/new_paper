@@ -1,51 +1,70 @@
-.mytest {
+/* General Styling for the Timebar */
+.timebar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 2rem;
   width: 100%;
 }
+
+/* CMYK Color Blocks within the Timebar */
 .cmyk {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: inherit;
+  height: 100%; /* Match the height of .timebar */
   width: 5%;
 }
+
+.cyan, .magenta, .yellow, .black {
+  height: 100%; /* Match the height of .cmyk */
+  width: 25%; /* Ensure the width is consistent */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Individual CMYK Colors */
 .cyan {
   background-color: cyan;
   color: white;
-  height: inherit;
-  width: 25%;
-  border-radius: 50%;
 }
+
 .magenta {
   background-color: magenta;
   color: white;
-  height: inherit;
-  width: 25%;
-  border-radius: 50%;
 }
+
 .yellow {
   background-color: yellow;
   color: black;
-  height: inherit;
-  width: 25%;
-  border-radius: 50%;
 }
+
 .black {
   background-color: black;
   color: white;
-  height: inherit;
-  width: 25%;
-  border-radius: 50%;
 }
+
+/* Styling for Header */
 h1 {
   margin: 0;
   padding: 0;
   font-size: 5.5rem;
   text-align: center;
+  letter-spacing: 1rem;
+  animation: myanimation 1s ease 0.5s infinite;
 }
+
+
+/* Keyframes for Header Animation */
+@keyframes myanimation {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Styling for the Top Black Strip */
 .blackstrip-top {
   background-color: black;
   color: antiquewhite;
@@ -54,4 +73,92 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+/* Styling for Newscate */
+.newscate {
+
+  letter-spacing: 1rem;
+}
+
+/* Main Grid Layout */
+.mainblock {
+  width: 100%;
+  height: 100%; /* Full viewport height */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: auto; /* Auto-adjust row height */
+  gap: 1rem;
+  box-sizing: border-box; /* Ensure padding/border are included */
+}
+
+/* Card Layout Inside the Grid */
+.card {
+  height: auto; /* Allow the card to adjust height based on content */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+}
+
+/* Image Inside the Card */
+.card img {
+  margin: 1rem;
+  height: auto; /* Adjust based on content */
+  width: auto; /* Adjust based on content */
+  max-width: 100%; /* Ensure image doesn't exceed container */
+  max-height: 100%; /* Ensure image doesn't exceed container */
+}
+
+/* Header Inside the Card */
+.card h3 {
+  margin: 1rem;
+  text-align: left;
+  background-color: gray;
+}
+
+/* Footer Styling */
+.footer {
+  height: auto; /* Adjust height to content */
+  width: 100%;
+  color:black;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.footer-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .mainblock {
+    grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+  }
+  h1 {
+    font-size: 3rem; /* Smaller font size for smaller screens */
+    letter-spacing: 0.5rem;
+  }
+  .newscate{
+    font-size: 0.5rem;
+    letter-spacing: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainblock {
+    grid-template-columns: 1fr ; /* One column on very small screens */
+  }
+
+  h1 {
+    font-size: 3rem; /* Smaller font size for smaller screens */
+    letter-spacing: 0.5rem;
+  }
+  .newscate{
+    font-size: 0.5rem;
+    letter-spacing: normal;
+  }
+
 }
