@@ -235,15 +235,32 @@ h1 {
   background-color: #FAEBD7;
 }
 
-@media (max-width: 768px){
-  .search_select{
+@media (max-width: 768px) {
+  .search_select {
     display: flex;
     flex-direction: column;
-   
   }
- 
 
+  .select-country {
+    margin: 10px; /* Adjusted margin for smaller screens */
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .select-country label {
+    margin-right: 5px; /* Adjusted margin for smaller screens */
+    font-weight: bold;
+  }
+
+  .select-country select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #FAEBD7;
+    width: 100%; /* Make the dropdown full width on small screens */
+  }
 }
+
 
 .nodata{
   width: 100%; 
