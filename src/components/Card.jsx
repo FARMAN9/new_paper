@@ -1,18 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-
-const myimg='https://media.istockphoto.com/id/1169235498/photo/happy-woman-thinking-at-breakfast-on-vacation-stock-photo.jpg?s=2048x2048&w=is&k=20&c=j24S0xCCQiippPW6cqIS5asBiE3l2_wUj78jPJNCbhY='
-const Card = () => {
+const Card = ({ article }) => {
   return (
     <div className='card'>
-      <img src={myimg} alt="" />
-      <h3>news</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni nam iusto repellat numquam quibusdam quas labore delectus, consectetur perspiciatis est accusantium amet molestiae odit et culpa quaerat dolorum eveniet.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat tempora quis repellendus. Suscipit natus magnam itaque aut. Saepe aspernatur, maiores consequatur unde magnam porro sit tenetur dignissimos voluptatem nostrum rerum!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nemo explicabo tempora quod, delectus hic, quia maiores dolorem omnis, fuga inventore quo commodi animi aliquid voluptate enim necessitatibus numquam autem!
-      </p>
+      {article.image && (
+        <img src={article.image} alt={article.title} />
+      )}
+      <h3>{article.title}</h3>
+      <p>{article.description}</p>
+      <p>{article.content}</p>
+      <p>Published at: {new Date(article.publishedAt).toLocaleString()}</p>
+      <p>Source: <a href={article.source.url} target="_blank" rel="noopener noreferrer">{article.source.name}</a></p>
+      <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
+
+

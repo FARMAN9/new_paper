@@ -79,6 +79,8 @@ h1 {
 .newscate {
 
   letter-spacing: 1rem;
+  cursor: pointer;
+  
 }
 
 /* Main Grid Layout */
@@ -104,6 +106,8 @@ h1 {
 
 /* Image Inside the Card */
 .card img {
+  filter: grayscale(99%); /* Convert image to black and white */
+  transition: filter 0.3s ease ; /* Smooth transition for hover effect */
   margin: 1rem;
   height: auto; /* Adjust based on content */
   width: auto; /* Adjust based on content */
@@ -145,6 +149,9 @@ h1 {
     font-size: 0.5rem;
     letter-spacing: normal;
   }
+  .timebar{
+    font-size: x-small;
+  }
 }
 
 @media (max-width: 480px) {
@@ -161,4 +168,89 @@ h1 {
     letter-spacing: normal;
   }
 
+}
+
+.search_select{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+}
+
+
+.search {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  gap: 10px;
+ /* Center the search bar and provide spacing  /* Limit the width for better readability */
+}
+
+.search input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid gary;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #FAEBD7;
+}
+
+.search button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #000000;
+  color:#FAEBD7;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search button:hover {
+  background-color: #232525;
+}
+
+.search button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(18, 21, 24, 0.5);
+}
+
+.select-country {
+  margin: 20px;
+}
+
+.select-country label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.select-country select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #FAEBD7;
+}
+
+@media (max-width: 768px){
+  .search_select{
+    display: flex;
+    flex-direction: column;
+   
+  }
+ 
+
+}
+
+.nodata{
+  width: 100%; 
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+ 
 }

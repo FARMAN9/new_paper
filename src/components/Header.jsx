@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchNews } from "../store/slice/newsApiSlice"; // Adjust the import path as needed
 
 function Header() {
-  var [date, setDate] = useState(new Date());
-  const news = ["World", "Business","Finance",'LifeStyle','Travel','Sport','Weather'];
+  const [date, setDate] = useState(new Date());
+  const news = ["World", "Business", "Finance", "Lifestyle", "Travel", "Sport", "Weather"];
+  const [query, setQuery] = useState("all");
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    var timer = setInterval(() => setDate(new Date()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  });
+    const timer = setInterval(() => setDate(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleSearch = (category) => {
+    setQuery(category);
+    if (category.trim()) {
+      dispatch(fetchNews({ query: category }));
+    }
+  };
+
   return (
     <nav className="">
       <div className="timebar">
-        <p> Time : {date.toLocaleTimeString()}</p>
-        <p> Date : {date.toLocaleDateString()}</p>
-        <p> Day : {date.toLocaleDateString("en-US", { weekday: "long" })}</p>
+        <p>Time: {date.toLocaleTimeString()}</p>
+        <p>Date: {date.toLocaleDateString()}</p>
+        <p>Day: {date.toLocaleDateString("en-US", { weekday: "long" })}</p>
         <div className="cmyk">
           <div className="cyan"></div>
           <div className="magenta"></div>
@@ -25,13 +35,20 @@ function Header() {
       </div>
       <hr />
       <h1>NEWS PAPER</h1>
-      <p className="blackstrip-top">
+      <div className="blackstrip-top">
         {news.map((item, index) => (
-          <p className="newscate" key={index}>{item}</p>
+          <p
+            className="newscate"
+            onClick={() => handleSearch(item)}
+            key={index}
+          >
+            {item}
+          </p>
         ))}
-      </p>
+      </div>
     </nav>
   );
 }
 
 export default Header;
+
